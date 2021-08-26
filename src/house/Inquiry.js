@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Inquiry = () => {
+  const counter = useRef(0);
   const [contactInfo, setContactInfo] = useState({
     name: "",
     email: "",
@@ -8,6 +9,7 @@ const Inquiry = () => {
   });
 
   const onChange = (e) => {
+    counter.current++;
     setContactInfo({ ...contactInfo, [e.target.id]: e.target.value });
   };
 
